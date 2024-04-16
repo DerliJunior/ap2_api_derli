@@ -25,3 +25,13 @@ python -m venv .venv
 12. Criar repositorio, schema, model e rota
 13. Subir no git com gitigone
 14. Criar dockerfile⌢愠楰浟彳敤≶ഠ
+
+# Configuração do banco de dados
+15. Para configurar o acesso ao banco, insira as credenciais do banco de dados em
+app/db/.env.
+
+* POSTGRES_USER=example
+* POSTGRES_PASSWORD=example
+* POSTGRES_SERVER=localhost
+* POSTGRES_PORT=5432
+* POSTGRES_DB=postgres
