@@ -1,4 +1,3 @@
-from decouple import config
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
@@ -8,9 +7,13 @@ from fastapi.exceptions import HTTPException
 from fastapi import status
 from schemas.usuario import Usuarios, TokenData
 from db.models import Usuarios as UsuariosModel
+
+
 crypt_context = CryptContext(schemes=['sha256_crypt'])
-SECRET_KEY = "  "  
+SECRET_KEY = "c7"  
 ALGORITHM = "HS256"
+
+
 class UsuariosRepository:
     def __init__(self, db_session: Session):
         self.db_session = db_session
@@ -60,8 +63,13 @@ class UsuariosRepository:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Invalid token')
 
     def find_by_name(self, username: str):
-        user_on_db = self.query(UsuariosModel).filter_by(username=username).first()
+        user_on_db = self.query(UsuariosModel.c["name", "password"]).filter_by(username=username).first()
         return user_on_db
+    
+    def find_all(self):
+        users = self.query(UsuariosModel).all()
+        print(users)
+        return users
     
     def _get_user(self, username: str):
         user_on_db = self.db_session.query(UsuariosModel).filter_by(username=username).first()

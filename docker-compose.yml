@@ -1,8 +1,9 @@
 services:
   postgresql1:
+      container_name: ap2_derli_1900702
       image: postgres
       environment:
-        POSTGRES_USER: example
-        POSTGRES_PASSWORD: example
+        POSTGRES_USER: derli_1900702
+        POSTGRES_PASSWORD: urubu100
       ports:
         - 5432:5432

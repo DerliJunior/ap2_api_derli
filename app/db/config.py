@@ -1,14 +1,7 @@
 import os
 from dotenv import load_dotenv
-#TODO
-from pathlib import Path
 
-
-# app\db\.env
-#vai no file env e armazena numa variável
-caminho = Path('app\db') / '.env'
-print(caminho)
-load_dotenv(dotenv_path=caminho)
+load_dotenv()
 
 class Settings:
     PROJECT_NAME:str = "Luiza Board"
