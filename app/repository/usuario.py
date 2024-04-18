@@ -63,7 +63,7 @@ class UsuariosRepository:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Invalid token')
 
     def find_by_name(self, username: str):
-        user_on_db = self.query(UsuariosModel.c["name", "password"]).filter_by(username=username).first()
+        user_on_db = self.query(UsuariosModel).filter_by(username=username).first()
         return user_on_db
     
     def find_all(self):

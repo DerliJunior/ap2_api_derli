@@ -26,8 +26,6 @@ def find_by_name(username: str, db: Session = Depends(get_db_session)):
             status_code=status.HTTP_404_NOT_FOUND, detail="Produto não encontrado"
         )
     return UsuariosResponse.from_orm(usuario)
-from fastapi.security import OAuth2PasswordRequestForm
-
 
 
 @router.post('/login')

@@ -35,3 +35,5 @@ app/db/.env.
 * POSTGRES_SERVER=localhost
 * POSTGRES_PORT=5432
 * POSTGRES_DB=postgres
+
+16. Os prints dos testes estão no diretório assets para a correção
